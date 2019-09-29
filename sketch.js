@@ -37,7 +37,7 @@ function instructions() {
   textAlign(CENTER, CENTER);
   fill(240);
   textSize(16);
-  text('Move the cursor left and right, and wait...', windowWidth / 2, windowHeight - 62);
+  text('M o v e  t h e  c u r s o r  l e f t  a n d  r i g h t,  a n d  w a i t . . .', windowWidth / 2, windowHeight - 62);
   textFont(avenir);
   pop();
 };
