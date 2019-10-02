@@ -5,9 +5,11 @@ var a = 100;
 var b = 40;
 var r = 80;
 
+//palette of the first part of the assignment
 var colorList1 = ["#A4036F", "#048BA8", "#16DB93", "#EFEA5A", "#F29E4C"];
 var colorList2 = ["#30292F", "#413F54", "#006992", "#27476E", "#001D4A"];
 
+//palette of the second part of the assignment
 var colorList3 = ["#069E2D", "#058E3F", "#DDE392", "#6BFFB8", "#E8FCCF"];
 var colorList4 = ["#C3E8BD", "#345995", "#3E8914", "#A594F9", "#6EEB83"];
 var colorList5 = ["#6EEB83", "#00798C", "#03CEA4", "#0CCE6B", "#7CB518"];
@@ -29,9 +31,9 @@ function draw() {
   } else {
     frameRate(120);
   }
-  lines();
-  instructions();
-  shapes();
+  lines(); //draw the lines in the forst part of the assignment
+  instructions(); //the text in the first pirt of the assignment
+  shapes(); //the texture in the second part of the assignment
 }
 
 function instructions() {
@@ -45,6 +47,7 @@ function instructions() {
 };
 
 function shapes() {
+  //draw the section of ellipse to make the "leaf"
   if (y > windowHeight - 40) {
     push();
     translate(r / 2, r / 2);
@@ -73,6 +76,7 @@ function shapes() {
       }
     }
 
+//draw the tucan
     if (mouseIsPressed) {
 
       push();
@@ -95,6 +99,7 @@ function shapes() {
   }
   pop();
 
+//instruction "press to find the tucan"
   if (y > windowHeight - 40) {
     push();
     textAlign(CENTER, CENTER);
@@ -108,6 +113,7 @@ function shapes() {
   }
 }
 
+//draw the pattern of lines in the first part of the assignment
 function lines() {
 
   push();
@@ -115,6 +121,7 @@ function lines() {
   translate(-50, -10);
   rectMode(CENTER);
 
+//define the palette and how they change
   var index1 = Math.round(random() * (colorList1.length - 1));
   var index2 = Math.round(random() * (colorList2.length - 1));
 
@@ -127,6 +134,8 @@ function lines() {
   };
 
   strokeWeight(1);
+
+//add a random variable in the lines
 
   if (random(2) < 0.5) {
     line(x, y, x + a, y + a);
@@ -142,15 +151,4 @@ function lines() {
   }
 
   pop();
-}
-
-function polygon(x, y, radius, npoints) {
-  let angle = TWO_PI / npoints;
-  beginShape();
-  for (let a = 0; a < TWO_PI; a += angle) {
-    let sx = x + cos(a) * radius;
-    let sy = y + sin(a) * radius;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
 }
